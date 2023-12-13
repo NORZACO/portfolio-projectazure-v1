@@ -99,8 +99,8 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": os.getenv("DJANGO_POSTGRESQL_ENGINE"),
-            "NAME": os.getenv("POSTGRES_DB"),
-            "USER": os.getenv("POSTGRES_USER"),
+            "NAME": os.getenv("POSTGRES_DATABASE_NAME"),
+            "USER": os.getenv("POSTGRES_ADMIN_USER"),
             "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
             "HOST": os.getenv("POSTGRES_HOST"),
             "PORT": os.getenv("POSTGRES_PORT"),

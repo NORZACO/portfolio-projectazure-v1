@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3f00efb9-748d-4fd7-a54a-caeabc9373ea/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/portfolio-projectazure-v1-web",
+    "appService.deploySubpath": "."
+}

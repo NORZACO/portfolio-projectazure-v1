@@ -54,15 +54,27 @@ conn_str_params = {
 }
 
 
-print( conn_str_params)
+print(conn_str_params)
 
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": conn_str_params["dbname"],
+#         "HOST": conn_str_params["host"],
+#         "USER": conn_str_params["user"],
+#         "PASSWORD": conn_str_params["password"],
+#     }
+# }
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": conn_str_params["dbname"],
-        "HOST": conn_str_params["host"],
-        "USER": conn_str_params["user"],
-        "PASSWORD": conn_str_params["password"],
+        "ENGINE": os.getenv("DJANGO_POSTGRESQL_ENGINE"),
+        "NAME": os.getenv("POSTGRES_DATABASE_NAME"),
+        "USER": os.getenv("POSTGRES_ADMIN_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT"),
+        "OPTIONS": {"sslmode": "require"},
     }
 }

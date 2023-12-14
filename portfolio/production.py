@@ -12,7 +12,7 @@ CSRF_TRUSTED_ORIGINS = (
     else []
 )
 
-DEBUG = False
+DEBUG = True
 
 
 MIDDLEWARE = [

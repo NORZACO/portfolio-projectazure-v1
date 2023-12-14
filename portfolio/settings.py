@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 
 
@@ -29,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DJANGO_DEBUG")
+DEBUG = False
 print("DEBUG: ", DEBUG)
 
 if DEBUG:
@@ -88,25 +87,25 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
+# if DEBUG:
+DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",  # os.getenv('DJANGO_POSTGRESQL_ENGINE'),#
             "NAME": BASE_DIR / "db.sqlite3",
         }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": os.getenv("DJANGO_POSTGRESQL_ENGINE"),
-            "NAME": os.getenv("POSTGRES_DATABASE_NAME"),
-            "USER": os.getenv("POSTGRES_ADMIN_USER"),
-            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-            "HOST": os.getenv("POSTGRES_HOST"),
-            "PORT": os.getenv("POSTGRES_PORT"),
-            "OPTIONS": {"sslmode": "require"},
-        }
-    }
+}
+# else:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": os.getenv("DJANGO_POSTGRESQL_ENGINE"),
+#             "NAME": os.getenv("POSTGRES_DATABASE_NAME"),
+#             "USER": os.getenv("POSTGRES_ADMIN_USER"),
+#             "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+#             "HOST": os.getenv("POSTGRES_HOST"),
+#             "PORT": os.getenv("POSTGRES_PORT"),
+#             "OPTIONS": {"sslmode": "require"},
+#         }
+#     }
 
 
 # Password validation
